@@ -1,10 +1,12 @@
 <template>
-    <div ref="dropdownContainer" class="relative cursor-pointer" @click="toggleDropdown">
-        <div class="w-auto h-auto flex items-center gap-4">
-            <slot></slot>
-            <IconRight v-if="data" :class="{active: active}"/>
-        </div>
-        <ul v-show="active" class="absolute top-[100%] left-0 w-full h-auto flex flex-col rounded-md gap-2 pl-[30px] py-[10px]  mt-2 bg-[#e8e8e8]">
+    <div class="relative" @click="toggleDropdown">
+        <li>
+            <a href="#" class="flex items-center justify-between hover:text-[#16bcdc]">
+                <slot></slot>
+                <IconRight v-if="data" :class="{active: active}" class="mr-4"/>
+            </a>
+        </li>
+        <ul v-show="active" class="w-full h-auto flex flex-col gap-2 pl-[30px] py-[10px]  mt-2 bg-[#e8e8e8]">
             <li v-for="item in data" :key="item" class="cursor-pointer">
                 <NuxtLink :to="item.link">
                     <div class="flex items-center gap-2 hover:text-[#16bcdc] ">
@@ -21,12 +23,6 @@
     import { ref } from 'vue'
 
     let active = ref(false)
-
-    const dropdownContainer = ref(null)
-    useClickOutside(dropdownContainer, () => {
-        console.log('click outside')
-        active.value = false
-    })
 
     const props = defineProps({
         data: Array,
