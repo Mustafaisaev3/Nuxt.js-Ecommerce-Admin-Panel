@@ -1,5 +1,6 @@
 <template>
-  <div class="title">Hello from Ecommerce Admin)</div>
+  <!-- <Sidebar /> -->
+  <div class="title w-full h-screen flex items-center justify-center">Hello from Ecommerce Admin)</div>
 </template>
 
 <script>
