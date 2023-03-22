@@ -45,7 +45,7 @@ const props = defineProps({
     /* padding: 5px 16px; */
     padding: 5px 0px;
     display: grid;
-    column-gap: 10px;
+    /* column-gap: 10px; */
     align-items: center;
     border-bottom: 2px solid #EEEFF4;
 

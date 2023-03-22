@@ -15,7 +15,13 @@
   "dependencies": {
     "@iconify-json/mdi": "^1.1.50",
     "@iconify/vue": "^4.1.0",
+    "@pinia/nuxt": "^0.4.7",
+    "pinia": "^2.0.33",
+    "portal-vue": "^3.0.0",
     "unplugin-icons": "^0.15.3",
     "unplugin-icons-nuxt3": "^1.0.0"
+  },
+  "overrides": {
+    "vue": "latest"
   }
 }
