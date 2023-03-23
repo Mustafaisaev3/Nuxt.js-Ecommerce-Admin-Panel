@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full h-auto mb-[20px]">
+    <div class="w-auto h-auto">
       <label v-if="label">{{ label }}</label>
       <input 
           :value="modelValue"
@@ -29,7 +29,7 @@ const props = defineProps(['label', 'modelValue', 'error'])
     input {
         background: #fff;
         border: 1px solid #e5e5e5;
-        border-radius: 3px;
+        border-radius: 5px;
         padding: 0 15px;
         outline: 0;
         font-weight: 400;
@@ -39,7 +39,6 @@ const props = defineProps(['label', 'modelValue', 'error'])
         margin-top: 5px;
         line-height: 50px;
         height: 50px;
-        border-radius: 2px;
         color: #999;
     }
 

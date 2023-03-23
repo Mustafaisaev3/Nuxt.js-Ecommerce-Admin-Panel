@@ -5,7 +5,7 @@ export const useUi = defineStore({
 
     state: () => {
         return {
-            showModal: true,
+            showModal: false,
             modalView: '',
             modalData: null, 
         }

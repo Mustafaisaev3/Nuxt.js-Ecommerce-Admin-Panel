@@ -18,16 +18,17 @@ const props = defineProps({
 
 <style scoped>
 .btn {
-    margin-right: 10px;
+    /* margin-right: 10px; */
     /* margin-bottom: 10px; */
     padding: 0 20px;
-    height: 40px;
+    height: 50px;
     color: #fff;
     border-radius: 7px;
     border: none;
     cursor: pointer;
     font-size: 15px;
     transition: .2s;
+    margin-top: 5px;
 }
 
 /* Primary Button */

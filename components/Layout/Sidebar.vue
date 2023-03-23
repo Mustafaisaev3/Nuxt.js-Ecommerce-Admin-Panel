@@ -33,6 +33,14 @@
                     </div>
                 </SidebarDropdown>
                 <li>
+                    <NuxtLink :to="'/category'" class="flex items-center gap-2 hover:text-[#16bcdc] ">
+                        <div class="w-[25px]">
+                            <IconCategory class="text-[20px]" />
+                        </div>
+                        <div class="text-[15px]">Categories</div>
+                    </NuxtLink>
+                </li>
+                <li>
                     <NuxtLink :to="'/orders'" class="flex items-center gap-2 hover:text-[#16bcdc] ">
                         <div class="w-[25px]">
                             <IconOrder class="text-[20px]" />
@@ -88,6 +96,7 @@
 import IconChartHistogram from '~icons/mdi/chart-histogram'
 import IconCart from '~icons/mdi/cart'
 import IconProduct from '~icons/mdi/purse'
+import IconCategory from '~icons/mdi/format-list-bulleted'
 import IconUser from '~icons/mdi/account'
 import IconOrder from '~icons/mdi/clipboard-edit'
 import IconSetting from '~icons/mdi/cog'
