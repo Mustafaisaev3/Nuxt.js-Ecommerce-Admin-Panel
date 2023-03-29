@@ -5,19 +5,25 @@ export const useUi = defineStore({
 
     state: () => {
         return {
+            // Modal
             showModal: false,
             modalView: '',
             modalData: null, 
+
+            // Notification
+            notifications: [],
+            notificationsData: null,
         }
     },
 
     getters: {
-        // showModal () {
-        //     return this.state.showModal
-        // }
+        isNotifications () {
+            return !!this.notifications.length
+        },
     },
 
     actions: {
+        // Modal
         openModal () {
             this.showModal = true
             console.log('openModal')
@@ -27,10 +33,32 @@ export const useUi = defineStore({
             this.showModal = false
         },
         setModalView (view) {
+            console.log(view)
             this.modalView = view
         },
         setModalData (data) {
             this.modalData = data
+        },
+
+        // Notifications
+        addNotification(payload) {
+            this.notifications.push({id: Math.random() + 1000, ...payload})
+            this.deleteNotification()
+        },
+        deleteNotification() {
+            setTimeout(() => {
+                this.notifications.shift()
+            }, 5000)
+        },
+        deleteNotificationById(id) {
+            console.log(id)
+            const foundNotificationIndex = this.notifications.findIndex(notification => {
+                return notification.id === id
+            })
+            this.notifications.splice(foundNotificationIndex, 1)
+            // this.notifications.filter(notification => {
+            //     return notification.id != id
+            // })
         },
     }
 })

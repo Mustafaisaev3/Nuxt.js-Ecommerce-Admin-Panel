@@ -1,7 +1,9 @@
 <template>
-  <div class="table-column">
-    <slot v-if="!image"></slot>
-    <img v-else class="table-coumn-image" :src="srcImg" alt="image">
+  <div class="table-column " :style="{'justify-content': align}">
+    <div v-if="!image" class="flex overflow-hidden">
+        <slot></slot>
+    </div>
+    <img v-else class="table-column-image" :src="srcImg" alt="image">
   </div>
 </template>
 
@@ -14,6 +16,10 @@ const props = defineProps({
     srcImg: {
         type: String,
         required: false
+    },
+    align: {
+        type: String,
+        required: false
     }
 })
 </script>
@@ -22,20 +28,24 @@ const props = defineProps({
 .table-column {
     height: 100%;
     width: 100%;
-    padding: 15px 10px;
+    padding: 10px 10px;
+    display: flex;
     position: relative;
     border-right: 2px solid #EEEFF4;
+    overflow: hidden;
 }
 
 .table-column:last-child{
     border-right: none;
 }
 
-.table-coumn-image {
+.table-column-image {
     max-width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.table-coumn__title {
+.table-column__title {
     margin-right: 5px;
     display: none;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="table-row" :style="{'grid-template-columns': columnTemplates}">
+  <div class="table-row" :style="{'grid-template-columns': columnTemplates, maxHeight, height }">
     <slot></slot>
   </div>
 </template>
@@ -7,6 +7,14 @@
 <script setup>
 const props = defineProps({
     columnTemplates: {
+        type: String,
+        required: false
+    },
+    maxHeight: {
+        type: String,
+        required: false
+    },
+    height: {
         type: String,
         required: false
     },
@@ -18,6 +26,7 @@ const props = defineProps({
     border-bottom: 2px solid #EEEFF4;
     position: relative;
     display: grid;
+    overflow: hidden;
     /* column-gap: 10px; */
     align-items: center;
     /* padding: 0 16px; */

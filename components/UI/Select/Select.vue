@@ -5,7 +5,7 @@
           <IconDown />
         </div>
         <div v-show="showSelectBody && options" class="absolute top-[100%] left-0 w-full h-auto flex flex-col rounded-md gap-2 px-[10px] py-[10px] mt-2 bg-[#e8e8e8] z-10"> 
-            <ul>
+            <ul class="flex flex-col gap-2">
                 <li v-for="option in options" :key="option.key" @click="() => selectOption(option)" class="cursor-pointer">
                     <div class="flex items-center gap-2 hover:text-[#16bcdc] ">
                         <div class="text-[15px]">{{ option.title }}</div>

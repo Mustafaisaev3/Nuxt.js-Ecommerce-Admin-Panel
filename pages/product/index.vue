@@ -56,10 +56,13 @@
 
 <script setup>
 import { ref } from 'vue'
+import { storeToRefs } from 'pinia';
 import Table from '~~/components/UI/Table/Table.vue';
 import TableRow from '~~/components/UI/Table/TableRow.vue';
 import TableColumn from '~~/components/UI/Table/TableColumn.vue';
 import Dropdown from '~~/components/UI/Dropdown/Dropdown.vue';
+import notificationTypes from '~~/types/notification-types';
+import { ModalViewsType } from '~~/types/modalViewTypes';
 
 
 // Icons
@@ -68,10 +71,13 @@ import IconDelete from '~icons/mdi/delete'
 import IconPencil from '~icons/mdi/pencil'
 
 import { useUi } from '~~/store/uiStore';
-const { openModal } = useUi()
+const { openModal, setModalView, addNotification } = useUi()
+const { modalView } = storeToRefs(useUi())
 
 const openingModal = () => {
+    setModalView(ModalViewsType.PRODUCT_ADD_VIEW)
     openModal()
+    // addNotification({type: notificationTypes.SUCCESS, text: 'Success notification'})
 }
 
 
