@@ -17,7 +17,7 @@
                 {{ category.name }}
             </TableColumn>
             <TableColumn :align="'center'">
-                {{ category.parent || '-' }}
+                {{ category.parent ? category.parent.name : '-' }}
             </TableColumn>
             <TableColumn>
                 {{ formatDate(category.createdAt) }}

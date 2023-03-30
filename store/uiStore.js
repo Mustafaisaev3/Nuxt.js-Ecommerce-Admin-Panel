@@ -13,6 +13,7 @@ export const useUi = defineStore({
             // Notification
             notifications: [],
             notificationsData: null,
+
         }
     },
 
@@ -56,9 +57,7 @@ export const useUi = defineStore({
                 return notification.id === id
             })
             this.notifications.splice(foundNotificationIndex, 1)
-            // this.notifications.filter(notification => {
-            //     return notification.id != id
-            // })
         },
+
     }
 })
