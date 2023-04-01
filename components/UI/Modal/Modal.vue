@@ -20,6 +20,7 @@ import { useClickOutside } from '~~/composables/useClickOutside';
 
 // Modal Views
 import AddProductView from './ModalViews/AddProductView.vue';
+import UpdateProduct from './ModalViews/UpdateProduct.vue';
 import AddCategoryView from './ModalViews/AddCategoryView.vue';
 import UpdateCategory from './ModalViews/UpdateCategory.vue';
 
@@ -30,6 +31,10 @@ const views = [
     {
         name: ModalViewsType.PRODUCT_ADD_VIEW,
         view: AddProductView
+    },
+    {
+        name: ModalViewsType.PRODUCT_UPDATE_VIEW,
+        view: UpdateProduct
     },
     {
         name: ModalViewsType.CATEGORY_ADD_VIEW,

@@ -17,11 +17,22 @@
             <input @change="uloadImage" type="file" name="imageUpload" id="imageUpload" class="hidden">
         </div>
         <div v-show="uploadImages" class="flex-1 overflow-auto py-2">
-            <div v-if="!uploadImages.length && onlyOne">
-                <img class="w-[70px] h-[70px] flex p-2 border rounded mt-2 gap-2" :src="images[0]" alt="">
+            <div v-if="!uploadImages.length && onlyOne" class="image-container w-[70px] h-[70px] border rounded mt-2 overflow-hidden relative">
+                <img class="w-full h-full flex gap-2 object-cover" :src="images[0]" alt="">
+                <!-- <div class="close hidden w-full h-full absolute top-0 right-0 items-center justify-center bg-[#1313136e]">
+                    <IconCloseCircle class="text-white text-[20px] cursor-pointer" />
+                </div> -->
+            </div>
+            <div v-if="!onlyOne" class="flex gap-2">
+                <div v-for="image in propsImages" :key="image" class="image-container w-[70px] h-[70px] border rounded mt-2 overflow-hidden relative">
+                    <img class="w-full h-full flex gap-2 object-cover" :src="image" alt="">
+                    <div class="close hidden w-full h-full absolute top-0 right-0 items-center justify-center bg-[#1313136e]">
+                        <IconCloseCircle class="text-white text-[20px] cursor-pointer" @click="() => deleteExistingImage(image)" />
+                    </div>
+                </div>
             </div>
             <div class="w-full h-[70px] flex p-2 border rounded mt-2 gap-2" v-for="image in uploadImages" :key="image.imageUrl">
-                <img :src="image.imageUrl" alt="" class="w-[50px] h-[50px]">
+                <img :src="image.imageUrl" alt="" class="w-[50px] h-[50px] object-cover">
                 <div class="flex-1 flex flex-col gap-1">
                     <span>{{ image.file.name }}</span>
                     <span>{{ image.file.size / 1000 }} KB</span>
@@ -39,6 +50,7 @@ import { reactive, defineEmits } from 'vue';
 import IconCamera from '~icons/mdi/camera-plus-outline'
 import IconUpload from '~icons/mdi/upload'
 import IconDelete from '~icons/mdi/delete'
+import IconCloseCircle from '~icons/mdi/close-circle'
 
 const props = defineProps({
     onlyOne: {
@@ -50,13 +62,19 @@ const props = defineProps({
         required: false
     }
 })
-
 const emits = defineEmits(['getImages'])
 
+
+const propsImages = reactive(props.images)
 const uploadImages = reactive([])
 
 const uloadImage = (e) => {
     console.log(e.target.files)
+}
+
+const deleteExistingImage = (imageObj) => {
+    const imageIndex = propsImages.indexOf(imageObj)
+    propsImages.splice(imageIndex, 1)
 }
 
 const deleteUploadImage = (imageObj) => {
@@ -97,6 +115,8 @@ const handleDragLeave = (e) => {
 
 </script>
 
-<style>
-
+<style scoped>
+.image-container:hover .close {
+    display: flex;
+}
 </style>

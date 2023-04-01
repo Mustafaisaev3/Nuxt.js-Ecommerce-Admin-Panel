@@ -60,7 +60,6 @@ import IconDelete from '~icons/mdi/delete'
 import IconPencil from '~icons/mdi/pencil'
 import IconPlus from '~icons/mdi/plus'
 
-
 const tableSizeColumns = '70px 100px 2fr 1fr 1fr 100px'
 const tableHead = ['ID', 'icon', 'name', 'parent', 'published', 'actions']
 

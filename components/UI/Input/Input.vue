@@ -1,6 +1,6 @@
 <template>
     <div class="w-auto h-auto">
-      <label v-if="label">{{ label }}</label>
+      <label v-if="label" :style="labelStyles">{{ label }}</label>
       <input 
           :value="modelValue"
           @input="$emit('update:modelValue', $event.target.value)"
@@ -13,7 +13,7 @@
 
 <script setup>
 
-const props = defineProps(['label', 'modelValue', 'error'])
+const props = defineProps(['label', 'modelValue', 'error', 'labelStyles'])
 
 </script>
 

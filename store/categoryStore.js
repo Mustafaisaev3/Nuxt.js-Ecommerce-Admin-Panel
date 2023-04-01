@@ -1,6 +1,10 @@
 import { defineStore } from 'pinia'
-import { CategoryApi } from '~~/services/api/categoryApi'
 import responseStatus from '~~/types/responseStatus'
+import { CategoryApi } from '~~/services/api/categoryApi'
+import { useUi } from './uiStore'
+import notificationTypes from '~~/types/notification-types'
+
+const { addNotification } = useUi()
 
 export const CategoryStore = defineStore({
     id: 'category-store',
@@ -23,6 +27,7 @@ export const CategoryStore = defineStore({
             const { status, data } = await CategoryApi.addCategory(payload)
             if (status == responseStatus.SUCCESS){
                 this.categories.push(data)
+                addNotification({type: notificationTypes.SUCCESS, text: 'Category Created!'})
             } else {
                 console.log(status)
             }
@@ -37,6 +42,7 @@ export const CategoryStore = defineStore({
                 })
                 console.log(targetCategory)
                 this.categories.splice(targetCategory, 1, data)
+                addNotification({type: notificationTypes.SUCCESS, text: 'Category Updated!'})
             } else {
                 console.log(status)
             }
@@ -51,6 +57,7 @@ export const CategoryStore = defineStore({
                 })
                 console.log(targetCategory)
                 this.categories.splice(targetCategory, 1)
+                addNotification({type: notificationTypes.SUCCESS, text: 'Category Delited!'})
             } else {
                 console.log(status)
             }
