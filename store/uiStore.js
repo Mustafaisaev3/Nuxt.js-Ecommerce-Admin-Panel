@@ -14,6 +14,10 @@ export const useUi = defineStore({
             notifications: [],
             notificationsData: null,
 
+            // Confirmation Modal
+            showConfirmationModal: false,
+            confirmationModalData: null, 
+
         }
     },
 
@@ -57,6 +61,20 @@ export const useUi = defineStore({
                 return notification.id === id
             })
             this.notifications.splice(foundNotificationIndex, 1)
+        },
+
+        // Confirmation Modal
+        openConfirmationModal (data) {
+            this.showConfirmationModal = true
+            this.confirmationModalData = data
+            console.log('openConfirmationModal', data, this.confirmationModalData )
+        },
+        closeConfirmationModal () {
+            console.log('closeConfirmationModal')
+            this.showConfirmationModal = false
+        },
+        setConfirmationModalData (data) {
+            this.confirmationModalData = data
         },
 
     }

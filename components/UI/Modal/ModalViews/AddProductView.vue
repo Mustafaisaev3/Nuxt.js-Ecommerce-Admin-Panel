@@ -45,9 +45,9 @@ const handleAddProduct = () => {
   formData.append('title', productName.value)
   formData.append('description', productDescription.value)
   formData.append('category', productCategory.value)
-  formData.append('price', productPrice.value)
-  formData.append('salePrice', productSalePrice.value)
-  formData.append('quantity', productQuantity.value)
+  formData.append('price', parseInt(productPrice.value))
+  formData.append('salePrice', parseInt(productSalePrice.value))
+  formData.append('stock', parseInt(productQuantity.value))
   productImages.value.forEach(image => {
     formData.append('img', image.file)
   })

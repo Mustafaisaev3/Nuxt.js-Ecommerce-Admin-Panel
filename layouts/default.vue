@@ -7,6 +7,7 @@
     </div>
     <Modal />
     <Notification />
+    <ConfirmationModal />
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import Sidebar from '~~/components/Layout/Sidebar.vue';
 import Header from '~~/components/Layout/Header.vue';
 import Modal from '~~/components/UI/Modal/Modal.vue';
 import Notification from '~~/components/UI/Notification/Notification.vue';
+import ConfirmationModal from '~~/components/UI/ConfirmationModal/ConfirmationModal.vue';
 
 </script>
 

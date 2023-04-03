@@ -1,5 +1,5 @@
 <template>
-  <div class="table-column " :style="{'justify-content': align}">
+  <div class="table-column" :style="{'justify-content': align}">
     <div v-if="!image" class="flex overflow-hidden">
         <slot></slot>
     </div>

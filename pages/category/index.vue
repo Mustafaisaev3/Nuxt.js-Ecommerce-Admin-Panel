@@ -23,7 +23,7 @@
                 {{ formatDate(category.createdAt) }}
             </TableColumn>
             <TableColumn :align="'center'">
-                <div class="flex items-center justify-center  gap-2">
+                <div class="w-full flex items-center justify-center  gap-2">
                     <IconPencil @click="handleUpdateCategory(category)" class="text-[#16bcdc] cursor-pointer" />
                     <IconDelete @click="() => handleDeleteCategory(category._id)" class="text-[red] cursor-pointer" />
                 </div>
@@ -64,7 +64,7 @@ const tableSizeColumns = '70px 100px 2fr 1fr 1fr 100px'
 const tableHead = ['ID', 'icon', 'name', 'parent', 'published', 'actions']
 
 // Modal
-const {setModalView, openModal, setModalData} = useUi()
+const {setModalView, openModal, setModalData, openConfirmationModal, setConfirmationModalData} = useUi()
 const handleAddCategory = () => {
     setModalView(ModalViewsType.CATEGORY_ADD_VIEW)
     openModal()
@@ -85,7 +85,9 @@ const formatDate = (dateStr) => {
 
 // Delete Category
 const handleDeleteCategory = (id) => {
-    deleteCategory(id)
+    // setConfirmationModalData({question: `Delete this Category? ${id}`, callback: () => deleteCategory(id)})
+    openConfirmationModal({question: `Delete this Category? ${id}`, callback: () => deleteCategory(id)})
+    // deleteCategory(id)
 }
 
 // Update Category
