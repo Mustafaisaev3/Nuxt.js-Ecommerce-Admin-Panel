@@ -25,7 +25,7 @@
             <TableColumn :align="'center'">
                 <div class="w-full flex items-center justify-center  gap-2">
                     <IconPencil @click="handleUpdateCategory(category)" class="text-[#16bcdc] cursor-pointer" />
-                    <IconDelete @click="() => handleDeleteCategory(category._id)" class="text-[red] cursor-pointer" />
+                    <IconDelete @click="() => handleDeleteCategory(category._id, category.name)" class="text-[red] cursor-pointer" />
                 </div>
             </TableColumn>
         </TableRow>
@@ -84,10 +84,8 @@ const formatDate = (dateStr) => {
 }
 
 // Delete Category
-const handleDeleteCategory = (id) => {
-    // setConfirmationModalData({question: `Delete this Category? ${id}`, callback: () => deleteCategory(id)})
-    openConfirmationModal({question: `Delete this Category? ${id}`, callback: () => deleteCategory(id)})
-    // deleteCategory(id)
+const handleDeleteCategory = (id, name) => {
+    openConfirmationModal({question: `Delete ${name} category?`, callback: () => deleteCategory(id)})
 }
 
 // Update Category

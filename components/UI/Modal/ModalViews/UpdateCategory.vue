@@ -28,6 +28,9 @@
   // Store
   const { updateCategory } = CategoryStore()
   const { categories } = storeToRefs(CategoryStore())
+
+  // UI Store
+  const { openConfirmationModal } = useUi()
   const { modalData } = storeToRefs(useUi())
   
   const categoryName = ref(modalData.value.name)
@@ -44,7 +47,11 @@
         formData.append('url', modalData.value.image)
       }
       
-      updateCategory(modalData.value._id ,formData)
+      openConfirmationModal({
+        question: `You want to change category?`,
+        callback: () => updateCategory(modalData.value._id ,formData)
+      })
+      // updateCategory(modalData.value._id ,formData)
   }
 
   const some = () => {

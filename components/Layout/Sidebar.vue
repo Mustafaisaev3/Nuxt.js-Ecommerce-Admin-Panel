@@ -68,7 +68,7 @@
             </ul>
         </div>
         <div class="sidebar-bottom w-full h-auto border-r border-t rounded-tr-[20px]">
-            <ul class="flex flex-col gap-4 py-[20px]">
+            <!-- <ul class="flex flex-col gap-4 py-[20px]">
                 <li>
                     <a href="#" class="flex items-center gap-2 hover:text-[#16bcdc] ">
                         <div class="text-[15px]">Help</div>
@@ -87,7 +87,10 @@
                         <div class="text-[15px]">Settings</div>
                     </a>
                 </li>
-            </ul>
+            </ul> -->
+            <div class="py-[20px] pr-[20px]">
+                <Button :color="'primary'" :label="'Log Out'" class="w-full" />
+            </div>
         </div>
     </div>
 </template>
@@ -102,6 +105,7 @@ import IconOrder from '~icons/mdi/clipboard-edit'
 import IconSetting from '~icons/mdi/cog'
 import IconLogout from '~icons/mdi/logout'
 import SidebarDropdown from '../UI/SidebarDropdown/SidebarDropdown.vue'
+import Button from '../UI/Button/Button.vue'
 
 </script>
 

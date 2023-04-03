@@ -1,6 +1,9 @@
 import { defineStore } from "pinia";
 import { OrderApi } from "~~/services/api/orderApi";
 import responseStatus from "~~/types/responseStatus";
+import { useUi } from './uiStore'
+
+const { addNotification } = useUi()
 
 export const OrderStore = defineStore({
     id: 'order-store',

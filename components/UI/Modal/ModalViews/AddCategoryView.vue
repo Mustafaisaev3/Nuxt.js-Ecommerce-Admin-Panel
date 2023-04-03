@@ -17,8 +17,8 @@
 
 <script setup>
 import { ref } from 'vue';
-import { CategoryStore } from '~~/store/categoryStore';
 import { storeToRefs } from 'pinia';
+import { CategoryStore } from '~~/store/categoryStore';
 import UploadImage from '../../UploadImage/UploadImage.vue';
 import Input from '../../Input/Input.vue';
 import Button from '../../Button/Button.vue'

@@ -18,7 +18,10 @@
         </div>
         <div v-show="uploadImages" class="flex-1 overflow-auto py-2">
             <div v-if="!uploadImages.length && onlyOne" class="image-container w-[70px] h-[70px] border rounded mt-2 overflow-hidden relative">
-                <img class="w-full h-full flex gap-2 object-cover" :src="images[0]" alt="">
+                <img v-if="images" class="w-full h-full flex gap-2 object-cover" :src="images[0]" alt="">
+                <div v-else class="w-full h-full flex items-center justify-center ">
+                    <IconCameraOutline class="text-[50px] text-[gray]" />
+                </div>
                 <!-- <div class="close hidden w-full h-full absolute top-0 right-0 items-center justify-center bg-[#1313136e]">
                     <IconCloseCircle class="text-white text-[20px] cursor-pointer" />
                 </div> -->
@@ -51,6 +54,7 @@ import IconCamera from '~icons/mdi/camera-plus-outline'
 import IconUpload from '~icons/mdi/upload'
 import IconDelete from '~icons/mdi/delete'
 import IconCloseCircle from '~icons/mdi/close-circle'
+import IconCameraOutline from '~icons/mdi/camera-outline'
 
 const props = defineProps({
     onlyOne: {

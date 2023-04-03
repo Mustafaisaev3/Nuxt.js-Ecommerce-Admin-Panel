@@ -75,7 +75,6 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
 import { OrderStore } from '~~/store/orderStore';
 import { storeToRefs } from 'pinia';
 import IconPlus from '~icons/mdi/magnify-plus'
