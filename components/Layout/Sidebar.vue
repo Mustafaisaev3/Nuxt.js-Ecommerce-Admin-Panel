@@ -12,9 +12,9 @@
                     </NuxtLink>
                 </li>
                 <SidebarDropdown :data="[
-                        {title: 'Vendor List', link: '/product'}, 
-                        {title: 'Vendor Grid', link: '/product/grid'}, 
-                        {title: 'Vendor Profile', link: '/'}
+                        {title: 'Produtcs', link: '/product'}, 
+                        {title: 'Options', link: '/product/options'}, 
+                        // {title: 'Vendor Profile', link: '/'}
                     ]"
                 >
                     <div class="flex gap-2">
@@ -24,20 +24,36 @@
                         <div class="text-[15px]">Product</div>
                     </div>
                 </SidebarDropdown>
-                <SidebarDropdown :data="[{title: 'Vendor List'}, {title: 'Vendor Grid'}, {title: 'Vendor Profile'}]">
+                <!-- <li>
+                    <NuxtLink :to="'/product'" class="flex items-center gap-2 hover:text-[#16bcdc] ">
+                        <div class="w-[25px]">
+                            <IconProduct class="text-[20px]" />
+                        </div>
+                        <div class="text-[15px]">Products</div>
+                    </NuxtLink>
+                </li> -->
+                <!-- <SidebarDropdown :data="[{title: 'Vendor List'}, {title: 'Vendor Grid'}, {title: 'Vendor Profile'}]">
                     <div class="flex gap-2">
                         <div class="w-[25px]">
                             <IconUser class="text-[20px]" />
                         </div>
                         <div class="text-[15px]">Custumers</div>
                     </div>
-                </SidebarDropdown>
+                </SidebarDropdown> -->
                 <li>
                     <NuxtLink :to="'/category'" class="flex items-center gap-2 hover:text-[#16bcdc] ">
                         <div class="w-[25px]">
                             <IconCategory class="text-[20px]" />
                         </div>
                         <div class="text-[15px]">Categories</div>
+                    </NuxtLink>
+                </li>
+                <li>
+                    <NuxtLink :to="'/custumer'" class="flex items-center gap-2 hover:text-[#16bcdc] ">
+                        <div class="w-[25px]">
+                            <IconUser class="text-[20px]" />
+                        </div>
+                        <div class="text-[15px]">Custumers</div>
                     </NuxtLink>
                 </li>
                 <li>
@@ -48,14 +64,14 @@
                         <div class="text-[15px]">Orders</div>
                     </NuxtLink>
                 </li>
-                <li>
+                <!-- <li>
                     <NuxtLink :to="'/checkout'" class="flex items-center gap-2 hover:text-[#16bcdc] ">
                         <div class="w-[25px]">
                             <IconCart class="text-[20px]" />
                         </div>
                         <div class="text-[15px]">Checkout</div>
                     </NuxtLink>
-                </li>
+                </li> -->
                 <li>
                     <NuxtLink :to="'/settings'" class="flex items-center gap-2 hover:text-[#16bcdc] ">
                         <div class="w-[25px]">

@@ -23,6 +23,8 @@ import AddProductView from './ModalViews/AddProductView.vue';
 import UpdateProduct from './ModalViews/UpdateProduct.vue';
 import AddCategoryView from './ModalViews/AddCategoryView.vue';
 import UpdateCategory from './ModalViews/UpdateCategory.vue';
+import UserOrders from './ModalViews/UserOrdersView.vue'
+import AddOptionView from './ModalViews/AddOptionView.vue';
 
 // Icons
 import IconClose from '~icons/mdi/close'
@@ -43,6 +45,14 @@ const views = [
     {
         name: ModalViewsType.CATEGORY_UPDATE_VIEW,
         view: UpdateCategory
+    },
+    {
+        name: ModalViewsType.USER_ORDERS_VIEW,
+        view: UserOrders
+    },
+    {
+        name: ModalViewsType.OPTION_ADD_VIEW,
+        view: AddOptionView
     },
 ]
 

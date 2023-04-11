@@ -2,25 +2,10 @@
   <div class="h-full p-[20px] overflow-y-scroll">
     <div class="product-page-header flex items-center justify-between">
         <div class="product-page-title text-[30px]">
-            Products
+            Options
         </div>
         <div class="flex gap-4">
-            <div class="flex items-center gap-2">
-                <div>Show:</div>
-                <!-- <Select placeholder="sort" :options="[{title:'10'},{title:'20'},{title:'30'},{title:'40'}]" /> -->
-                <Dropdown
-                    :bordered="true"
-                    :data="[{title:'10'},{title:'20'},{title:'30'},{title:'40'}]"
-                >
-                    <div class="leading-3"></div>
-                </Dropdown>
-            </div>
-            <!-- <Dropdown
-                :bordered="true"
-            >
-                <div class="leading-3">Show</div>
-            </Dropdown> -->
-            <button @click="openingModal" class="w-auto h-[40px] bg-[#16bcdc] rounded-md p-2 text-white flex items-center gap-1"><IconPlus />Add Product</button>
+            <button @click="openingModal" class="w-auto h-[40px] bg-[#16bcdc] rounded-md p-2 text-white flex items-center gap-1"><IconPlus />Add Option</button>
         </div>
     </div>
     <Table :head="tableHeads" :column-templates="tableSizeColumns">
@@ -44,11 +29,9 @@
                 {{ product.category.name }}
             </TableColumn>
             <TableColumn class="flex items-center justify-center">
-                <!-- {{ $store.state.count }} -->
                 {{ product.stock }}
             </TableColumn>
             <TableColumn class="flex items-center justify-center">
-                <!-- {{ $store.state.count }} -->
                 {{ product.price }}
             </TableColumn>
             <TableColumn>
@@ -64,37 +47,29 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { storeToRefs } from 'pinia';
 import Table from '~~/components/UI/Table/Table.vue';
 import TableRow from '~~/components/UI/Table/TableRow.vue';
 import TableColumn from '~~/components/UI/Table/TableColumn.vue';
 import Dropdown from '~~/components/UI/Dropdown/Dropdown.vue';
-import Select from '~~/components/UI/Select/Select.vue';
 import { ModalViewsType } from '~~/types/modalViewTypes';
-import { ProductStore } from '~~/store/productStore';
+import { useUi } from '~~/store/uiStore';
+import { storeToRefs } from 'pinia';
 
 // Icons
 import IconPlus from '~icons/mdi/plus'
 import IconDelete from '~icons/mdi/delete'
 import IconPencil from '~icons/mdi/pencil'
 
+// Table grid settings
+const tableHeads = ['id', 'title', 'image', 'actions']
+const tableSizeColumns = '100px 1fr 1fr 200px'
+
 // UI Store
-import { useUi } from '~~/store/uiStore';
 const { openModal, setModalView, setModalData, addNotification } = useUi()
 const { modalView } = storeToRefs(useUi())
 
-// Table grid settings
-const tableHeads = ['id', 'image', 'title', 'description', 'category', 'quantity', 'price', 'actions']
-const tableSizeColumns = '70px 100px 1fr 1.5fr 100px 70px 70px 70px'
-
-// Products Store
-const { fetchProducts, deleteProduct } = ProductStore()
-const { products } = storeToRefs(ProductStore())
-
-
 const openingModal = () => {
-    setModalView(ModalViewsType.PRODUCT_ADD_VIEW)
+    setModalView(ModalViewsType.OPTION_ADD_VIEW)
     openModal()
     // addNotification({type: notificationTypes.SUCCESS, text: 'Success notification'})
 }
@@ -111,10 +86,10 @@ const handleDeleteProduct = (id) => {
     deleteProduct(id)
 }
 
-onBeforeMount(() => {
-    fetchProducts()
-    console.log(products)
-})
+// onBeforeMount(() => {
+//     fetchProducts()
+//     console.log(products)
+// })
 
 </script>
 

@@ -4,7 +4,7 @@ export const OrderApi = {
     async fetchOrders () {
         const { data } = await axios.get('/orders');
         return data.data;
-    },  
+    },    
     async addOrder (payload){
         const { data } = await axios.post('/order', payload);
         console.log(data)

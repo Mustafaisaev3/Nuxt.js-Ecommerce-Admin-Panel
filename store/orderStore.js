@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { OrderApi } from "~~/services/api/orderApi";
 import responseStatus from "~~/types/responseStatus";
 import { useUi } from './uiStore'
+import notificationTypes from '~~/types/notification-types'
 
 const { addNotification } = useUi()
 

@@ -1,6 +1,6 @@
 <template>
-  <div class="table-column" :style="{'justify-content': align}">
-    <div v-if="!image" class="flex overflow-hidden">
+  <div class="table-column" :style="{'justify-content': align, 'align-items': verticalAlign}">
+    <div v-if="!image" class="w-full flex overflow-hidden">
         <slot></slot>
     </div>
     <img v-else class="table-column-image" :src="srcImg" alt="image">
@@ -18,6 +18,10 @@ const props = defineProps({
         required: false
     },
     align: {
+        type: String,
+        required: false
+    },
+    verticalAlign: {
         type: String,
         required: false
     }

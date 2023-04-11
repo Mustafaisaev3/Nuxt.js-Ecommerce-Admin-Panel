@@ -1,7 +1,7 @@
 <template>
-    <div class="select-container max-w-[400px] h-auto">
+    <div class="select-container max-w-[400px] h-auto ">
         <label v-if="label">{{ label }}</label>
-        <div class="select w-full flex items-center justify-between overflow-hidden" @click="showSelectBody = !showSelectBody">
+        <div class="select w-full flex items-center justify-between relative" @click="showSelectBody = !showSelectBody">
           {{ activeValue ? activeValue.title : placeholder }}
           <IconDown />
           <div v-show="showSelectBody && options" class="absolute top-[100%] left-0 w-full h-auto max-h-[150px] flex flex-col rounded-md gap-2 px-[10px] py-[10px] mt-2 bg-[#e8e8e8] overflow-auto z-[1000]"> 
@@ -63,7 +63,7 @@ const selectOption = (option) => {
     width: 100%;
     margin-top: 5px;
     line-height: 20px;
-    height: 20px;
+    height: 50px;
     border-radius: 5px;
     color: #999;
 }
