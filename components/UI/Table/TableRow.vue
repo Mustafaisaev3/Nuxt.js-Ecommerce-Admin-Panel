@@ -26,7 +26,7 @@ const props = defineProps({
     border-bottom: 2px solid #EEEFF4;
     position: relative;
     display: grid;
-    overflow: hidden;
+    /* overflow: hidden; ///////////////////////// */
     /* column-gap: 10px; */
     align-items: center;
     /* padding: 0 16px; */

@@ -10,35 +10,22 @@
     </div>
     <Table :head="tableHeads" :column-templates="tableSizeColumns">
         <TableRow 
-            v-for="product in products"
-            :key="product._id"
+            v-for="option in options"
+            :key="option._id"
             :column-templates="tableSizeColumns"
         >
             <TableColumn>
-                {{ product._id }}
-            </TableColumn>
-            <!-- <TableColumn :src-img="product.images[0].url" :image="true" /> -->
-            <TableColumn :src-img="product.images[0]" :image="true" />
-            <TableColumn>
-                {{ product.name }}
+                {{ option._id }}
             </TableColumn>
             <TableColumn>
-                {{ product.description }}
+                {{ option.title }}
             </TableColumn>
-            <TableColumn>
-                {{ product.category.name }}
-            </TableColumn>
-            <TableColumn class="flex items-center justify-center">
-                {{ product.stock }}
-            </TableColumn>
-            <TableColumn class="flex items-center justify-center">
-                {{ product.price }}
-            </TableColumn>
+            <!-- <TableColumn :src-img="option.images[0]" :image="true" /> -->
             <TableColumn>
                 <!-- <button class="w-[100px] h-[40px] bg-cyan-600 rounded-md p-2">Click</button> -->
                 <div class="flex items-center justify-center  gap-2">
-                    <IconPencil @click="() => handleUpdateProduct(product)" class="text-[#16bcdc] cursor-pointer" />
-                    <IconDelete @click="() => handleDeleteProduct(product._id)" class="text-[red] cursor-pointer" />
+                    <IconPencil @click="() => handleUpdateProduct(option)" class="text-[#16bcdc] cursor-pointer" />
+                    <IconDelete @click="() => handleDeleteProduct(option._id)" class="text-[red] cursor-pointer" />
                 </div>
             </TableColumn>
         </TableRow>
@@ -52,6 +39,7 @@ import TableRow from '~~/components/UI/Table/TableRow.vue';
 import TableColumn from '~~/components/UI/Table/TableColumn.vue';
 import Dropdown from '~~/components/UI/Dropdown/Dropdown.vue';
 import { ModalViewsType } from '~~/types/modalViewTypes';
+import { OptionStore } from '~~/store/optionStore'
 import { useUi } from '~~/store/uiStore';
 import { storeToRefs } from 'pinia';
 
@@ -61,12 +49,16 @@ import IconDelete from '~icons/mdi/delete'
 import IconPencil from '~icons/mdi/pencil'
 
 // Table grid settings
-const tableHeads = ['id', 'title', 'image', 'actions']
-const tableSizeColumns = '100px 1fr 1fr 200px'
+const tableHeads = ['id', 'title', 'actions']
+const tableSizeColumns = '100px 1fr 200px'
 
 // UI Store
 const { openModal, setModalView, setModalData, addNotification } = useUi()
 const { modalView } = storeToRefs(useUi())
+
+// Options Store
+const { fetchOptions } = OptionStore()
+const { options } = storeToRefs(OptionStore())
 
 const openingModal = () => {
     setModalView(ModalViewsType.OPTION_ADD_VIEW)
@@ -86,10 +78,10 @@ const handleDeleteProduct = (id) => {
     deleteProduct(id)
 }
 
-// onBeforeMount(() => {
-//     fetchProducts()
-//     console.log(products)
-// })
+onBeforeMount(() => {
+    fetchOptions()
+    // console.log(products)
+})
 
 </script>
 

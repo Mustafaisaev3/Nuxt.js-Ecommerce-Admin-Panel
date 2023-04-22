@@ -20,10 +20,10 @@
   import { storeToRefs } from 'pinia';
   import { CategoryStore } from '~~/store/categoryStore';
   import { useUi } from '~~/store/uiStore';
-  import UploadImage from '../../UploadImage/UploadImage.vue';
-  import Input from '../../Input/Input.vue';
-  import Button from '../../Button/Button.vue'
-  import Select from '../../Select/Select.vue'
+  import UploadImage from '@/components/UI/UploadImage/UploadImage.vue';
+  import Input from '@/components/UI/Input/Input.vue';
+  import Button from '@/components/UI/Button/Button.vue'
+  import Select from '@/components/UI/Select/Select.vue'
   
   // Store
   const { updateCategory } = CategoryStore()

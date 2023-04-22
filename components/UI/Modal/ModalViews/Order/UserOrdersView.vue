@@ -54,11 +54,11 @@ import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useUi } from '~~/store/uiStore';
 import { CustumerStore } from '~~/store/custumerStore';
-import Button from '../../Button/Button.vue'
-import Table from '../../Table/Table.vue';
-import TableRow from '../../Table/TableRow.vue';
-import TableColumn from '../../Table/TableColumn.vue';
-import StatusBage from '../../StatusBage.vue';
+import Button from '@/components/UI/Button/Button.vue'
+import Table from '@/components/UI/Table/Table.vue';
+import TableRow from '@/components/UI/Table/TableRow.vue';
+import TableColumn from '@/components/UI/Table/TableColumn.vue';
+import StatusBage from '@/components/UI/StatusBage.vue';
 import orderStatusTypes from '~~/types/orderStatusTypes';
 
 const tableSizeColumns = '70px 1fr 2fr 1fr 1fr 1fr 1fr 150px 1fr'

@@ -29,7 +29,7 @@ export const OptionStore = defineStore({
             console.log(status, data, 'payload')
             if (status == responseStatus.SUCCESS){
                 this.options.push(data)
-                addNotification({type: notificationTypes.SUCCESS, text: 'Order Created!'})
+                addNotification({type: notificationTypes.SUCCESS, text: 'Option Created!'})
             } else {
                 console.log(status)
                 addNotification({type: notificationTypes.ERROR, text: 'Error'})

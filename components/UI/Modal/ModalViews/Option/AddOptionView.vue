@@ -48,14 +48,11 @@
   
   <script setup>
   import { ref, reactive } from 'vue';
-  import axios from '@/core/axios';
-  import { storeToRefs } from 'pinia';
-  import { CategoryStore } from '~~/store/categoryStore';
   import { OptionStore } from '~~/store/optionStore';
-  import SimpleUploadImage from '../../UploadImage/SimpleUploadImage.vue';
-  import Input from '../../Input/Input.vue';
-  import Button from '../../Button/Button.vue'
-  import Select from '../../Select/Select.vue';
+  import SimpleUploadImage from '@/components/UI/UploadImage/SimpleUploadImage.vue';
+//   import Input from '../../../Input/Input.vue';
+  import Input from '@/components/UI/Input/Input.vue';
+  import Button from '@/components/UI/Button/Button.vue'
   import Table from '~~/components/UI/Table/Table.vue';
   import TableRow from '~~/components/UI/Table/TableRow.vue';
   import TableColumn from '~~/components/UI/Table/TableColumn.vue';
@@ -106,7 +103,7 @@
             formData.append('img', option.image.file)
         }
     })
-    
+
     addOption(formData)
   }
   

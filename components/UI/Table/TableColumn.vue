@@ -1,6 +1,6 @@
 <template>
   <div class="table-column" :style="{'justify-content': align, 'align-items': verticalAlign}">
-    <div v-if="!image" class="w-full flex overflow-hidden">
+    <div v-if="!image" class="w-full flex overflow-y-visible" :class="{'overflow-x-hidden': overflow_X_hidden}">
         <slot></slot>
     </div>
     <img v-else class="table-column-image" :src="srcImg" alt="image">
@@ -24,7 +24,12 @@ const props = defineProps({
     verticalAlign: {
         type: String,
         required: false
-    }
+    },
+    overflow_X_hidden: {
+        type: Boolean,
+        required: false,
+        default: true
+    },
 })
 </script>
 
@@ -36,7 +41,7 @@ const props = defineProps({
     display: flex;
     position: relative;
     border-right: 2px solid #EEEFF4;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .table-column:last-child{

@@ -19,12 +19,12 @@ import { ModalViewsType } from '~~/types/modalViewTypes';
 import { useClickOutside } from '~~/composables/useClickOutside';
 
 // Modal Views
-import AddProductView from './ModalViews/AddProductView.vue';
-import UpdateProduct from './ModalViews/UpdateProduct.vue';
-import AddCategoryView from './ModalViews/AddCategoryView.vue';
-import UpdateCategory from './ModalViews/UpdateCategory.vue';
-import UserOrders from './ModalViews/UserOrdersView.vue'
-import AddOptionView from './ModalViews/AddOptionView.vue';
+import AddProductView from './ModalViews/Product/AddProductView.vue';
+import UpdateProduct from './ModalViews/Product/UpdateProduct.vue';
+import AddCategoryView from './ModalViews/Category/AddCategoryView.vue';
+import UpdateCategory from './ModalViews/Category/UpdateCategory.vue';
+import UserOrders from './ModalViews/Order/UserOrdersView.vue'
+import AddOptionView from './ModalViews/Option/AddOptionView.vue';
 
 // Icons
 import IconClose from '~icons/mdi/close'

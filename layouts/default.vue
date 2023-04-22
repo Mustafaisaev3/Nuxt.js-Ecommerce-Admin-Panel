@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-screen overflow-hidden flex px-[40px] py-[20px] relative">
     <Sidebar />
-    <div class="main-content w-full">
+    <div class="main-content w-full h-full overflow-hidden">
         <Header />
         <slot />
     </div>
