@@ -77,7 +77,7 @@
   const productCategory = ref(modalData.value.category)
   const productPrice = ref(modalData.value.price)
   const productSalePrice = ref(modalData.value.salePrice)
-  const productQuantity = ref(modalData.value.quantity)
+  const productQuantity = ref(modalData.value.stock)
   const productOptions = ref(modalData.value.options)
   const productCharacteristics = ref(modalData.value.characteristics)
   const productExistingImages = ref(modalData.value.images)

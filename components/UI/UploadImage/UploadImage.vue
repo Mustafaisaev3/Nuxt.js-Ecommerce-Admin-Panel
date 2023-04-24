@@ -18,7 +18,8 @@
         </div>
         <div v-show="uploadImages" class="flex-1 overflow-auto py-2">
             <div v-if="!uploadImages.length && onlyOne" class="image-container w-[70px] h-[70px] border rounded mt-2 overflow-hidden relative">
-                <img v-if="images" class="w-full h-full flex gap-2 object-cover" :src="images[0]" alt="">
+                <!-- <img v-if="images" class="w-full h-full flex gap-2 object-cover" :src="images[0]" alt=""> -->
+                <img v-if="images" class="w-full h-full flex gap-2 object-cover" :src="images" alt="">
                 <div v-else class="w-full h-full flex items-center justify-center ">
                     <IconCameraOutline class="text-[50px] text-[gray]" />
                 </div>

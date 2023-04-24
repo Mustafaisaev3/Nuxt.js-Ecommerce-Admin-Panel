@@ -24,6 +24,19 @@
                         <div class="text-[15px]">Product</div>
                     </div>
                 </SidebarDropdown>
+                <SidebarDropdown :data="[
+                        {title: 'Blog Posts', link: '/blog'}, 
+                        {title: 'Blog Categories', link: '/blog/categories'},  
+                        // {title: 'Vendor Profile', link: '/'}
+                    ]"
+                >
+                    <div class="flex gap-2">
+                        <div class="w-[25px]">
+                            <IconBlog class="text-[20px]" />
+                        </div>
+                        <div class="text-[15px]">Blog</div>
+                    </div>
+                </SidebarDropdown>
                 <!-- <li>
                     <NuxtLink :to="'/product'" class="flex items-center gap-2 hover:text-[#16bcdc] ">
                         <div class="w-[25px]">
@@ -117,6 +130,7 @@ import IconCart from '~icons/mdi/cart'
 import IconProduct from '~icons/mdi/purse'
 import IconCategory from '~icons/mdi/format-list-bulleted'
 import IconUser from '~icons/mdi/account'
+import IconBlog from '~icons/mdi/blogger'
 import IconOrder from '~icons/mdi/clipboard-edit'
 import IconSetting from '~icons/mdi/cog'
 import IconLogout from '~icons/mdi/logout'

@@ -25,6 +25,10 @@ import AddCategoryView from './ModalViews/Category/AddCategoryView.vue';
 import UpdateCategory from './ModalViews/Category/UpdateCategory.vue';
 import UserOrders from './ModalViews/Order/UserOrdersView.vue'
 import AddOptionView from './ModalViews/Option/AddOptionView.vue';
+import AddBlogCategoryView from './ModalViews/Blog/AddBlogCategoryView.vue';
+import UpdateBlogCategoryView from './ModalViews/Blog/UpdateBlogCategory.vue';
+import AddBlogPostView from './ModalViews/Blog/AddBlogPostView.vue';
+import UpdateBlogPostView from './ModalViews/Blog/UpdateBlogPost.vue';
 
 // Icons
 import IconClose from '~icons/mdi/close'
@@ -53,6 +57,22 @@ const views = [
     {
         name: ModalViewsType.OPTION_ADD_VIEW,
         view: AddOptionView
+    },
+    {
+        name: ModalViewsType.BLOG_CATEGORY_ADD_VIEW,
+        view: AddBlogCategoryView
+    },
+    {
+        name: ModalViewsType.BLOG_CATEGORY_UPDATE_VIEW,
+        view: UpdateBlogCategoryView
+    },
+    {
+        name: ModalViewsType.BLOG_POST_ADD_VIEW,
+        view: AddBlogPostView
+    },
+    {
+        name: ModalViewsType.BLOG_POST_UPDATE_VIEW,
+        view: UpdateBlogPostView
     },
 ]
 
