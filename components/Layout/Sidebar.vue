@@ -37,22 +37,27 @@
                         <div class="text-[15px]">Blog</div>
                     </div>
                 </SidebarDropdown>
-                <!-- <li>
-                    <NuxtLink :to="'/product'" class="flex items-center gap-2 hover:text-[#16bcdc] ">
-                        <div class="w-[25px]">
-                            <IconProduct class="text-[20px]" />
-                        </div>
-                        <div class="text-[15px]">Products</div>
-                    </NuxtLink>
-                </li> -->
-                <!-- <SidebarDropdown :data="[{title: 'Vendor List'}, {title: 'Vendor Grid'}, {title: 'Vendor Profile'}]">
+                <SidebarDropdown :data="[
+                        {title: 'Banners', link: '/modules/banners'}, 
+                        {title: 'Sliders', link: '/modules/slider'},  
+                        // {title: 'Vendor Profile', link: '/'}
+                    ]"
+                >
                     <div class="flex gap-2">
                         <div class="w-[25px]">
-                            <IconUser class="text-[20px]" />
+                            <IconModules class="text-[20px]" />
                         </div>
-                        <div class="text-[15px]">Custumers</div>
+                        <div class="text-[15px]">Modules</div>
                     </div>
-                </SidebarDropdown> -->
+                </SidebarDropdown>
+                <!-- <li>
+                    <NuxtLink :to="'/modules'" class="flex items-center gap-2 hover:text-[#16bcdc] ">
+                        <div class="w-[25px]">
+                            <IconModules class="text-[20px]" />
+                        </div>
+                        <div class="text-[15px]">Modules</div>
+                    </NuxtLink>
+                </li> -->
                 <li>
                     <NuxtLink :to="'/category'" class="flex items-center gap-2 hover:text-[#16bcdc] ">
                         <div class="w-[25px]">
@@ -132,6 +137,7 @@ import IconCategory from '~icons/mdi/format-list-bulleted'
 import IconUser from '~icons/mdi/account'
 import IconBlog from '~icons/mdi/blogger'
 import IconOrder from '~icons/mdi/clipboard-edit'
+import IconModules from '~icons/mdi/monitor-dashboard'
 import IconSetting from '~icons/mdi/cog'
 import IconLogout from '~icons/mdi/logout'
 import SidebarDropdown from '../UI/SidebarDropdown/SidebarDropdown.vue'

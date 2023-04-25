@@ -29,6 +29,8 @@ import AddBlogCategoryView from './ModalViews/Blog/AddBlogCategoryView.vue';
 import UpdateBlogCategoryView from './ModalViews/Blog/UpdateBlogCategory.vue';
 import AddBlogPostView from './ModalViews/Blog/AddBlogPostView.vue';
 import UpdateBlogPostView from './ModalViews/Blog/UpdateBlogPost.vue';
+import MainSliderViewView from './ModalViews/Home/MainSliderView.vue';
+import MainBannerGridView from './ModalViews/Home/MainBannerGridView.vue';
 
 // Icons
 import IconClose from '~icons/mdi/close'
@@ -73,6 +75,14 @@ const views = [
     {
         name: ModalViewsType.BLOG_POST_UPDATE_VIEW,
         view: UpdateBlogPostView
+    },
+    {
+        name: ModalViewsType.HOME_MAIN_SLIDER_VIEW,
+        view: MainSliderViewView
+    },
+    {
+        name: ModalViewsType.HOME_MAIN_BANNER_GRID_VIEW,
+        view: MainBannerGridView
     },
 ]
 
