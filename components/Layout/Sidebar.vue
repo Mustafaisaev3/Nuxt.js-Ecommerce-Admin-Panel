@@ -39,7 +39,7 @@
                 </SidebarDropdown>
                 <SidebarDropdown :data="[
                         {title: 'Banners', link: '/modules/banners'}, 
-                        {title: 'Sliders', link: '/modules/slider'},  
+                        {title: 'Sliders', link: '/modules/sliders'},  
                         // {title: 'Vendor Profile', link: '/'}
                     ]"
                 >

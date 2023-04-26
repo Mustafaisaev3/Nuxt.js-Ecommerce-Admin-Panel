@@ -12,11 +12,13 @@ export const ModulesStore = defineStore({
     state: () => {
         return {
             main_banner: undefined,
+            sliders: undefined,
             loading: false
         }
     },
 
     actions: {
+        // Home Main Banner
         async fetchMainBanner () {
             this.loading = true
             this.main_banner = await ModulesApi.fetchMainBanner()
@@ -33,31 +35,55 @@ export const ModulesStore = defineStore({
             }
             this.loading = false
         },
-        async updateCategory (id, payload) {
+
+
+        // Slider
+        async fetchSliders () {
             this.loading = true
-            const { status, data } = await CategoryApi.updateCategory(id, payload)
+            const { data } = await ModulesApi.fetchSliders()
+            console.log(data)
+            this.sliders = data
+            this.loading = false
+        },
+
+        async addSlider (payload) {
+            this.loading = true
+            const { status, data } = await ModulesApi.addSlider(payload)
             if (status == responseStatus.SUCCESS){
-                const targetCategory = this.categories.findIndex(category => {
-                    return category._id == id
-                })
-                console.log(targetCategory)
-                this.categories.splice(targetCategory, 1, data)
-                addNotification({type: notificationTypes.SUCCESS, text: 'Category Updated!'})
+                this.sliders.push(data) 
+                addNotification({type: notificationTypes.SUCCESS, text: 'New Slider Created!'})
             } else {
                 console.log(status)
             }
             this.loading = false
         },
-        async deleteCategory (id) {
+
+        async updateSlider (id, payload) {
             this.loading = true
-            const { status, message } = await CategoryApi.deleteCategory(id)
+            const { status, data } = await ModulesApi.updateSlider(id, payload)
             if (status == responseStatus.SUCCESS){
-                const targetCategory = this.categories.findIndex(category => {
-                    return category._id == id
+                const targetSlider = this.sliders.findIndex(slider => {
+                    return slider._id == id
                 })
-                console.log(targetCategory)
-                this.categories.splice(targetCategory, 1)
-                addNotification({type: notificationTypes.SUCCESS, text: 'Category Delited!'})
+                console.log(targetSlider)
+                this.sliders.splice(targetSlider, 1, data)
+                addNotification({type: notificationTypes.SUCCESS, text: 'Slider Updated!'})
+            } else {
+                console.log(status)
+            }
+            this.loading = false
+        },
+        
+        async deleteSlider (id) {
+            this.loading = true
+            const { status, message } = await ModulesApi.deleteSlider(id)
+            if (status == responseStatus.SUCCESS){
+                const targetSlider = this.sliders.findIndex(slider => {
+                    return slider._id == id
+                })
+                console.log(targetSlider)
+                this.sliders.splice(targetSlider, 1)
+                addNotification({type: notificationTypes.SUCCESS, text: 'Slider Delited!'})
             } else {
                 console.log(status)
             }

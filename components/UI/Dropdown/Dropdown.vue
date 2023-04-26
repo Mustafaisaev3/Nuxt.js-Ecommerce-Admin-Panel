@@ -1,7 +1,7 @@
 <template>
     <div ref="dropdownContainer" class="relative cursor-pointer" @click="toggleDropdown">
         <div class="dropdown-header w-auto h-[100%] flex items-center justify-between gap-4 p-[10px]" :class="{'border': bordered}">
-            <!-- <slot></slot> -->
+            <slot></slot>
             {{ activeValue.value }}
             <IconRight v-if="data" :class="{active: active}"/>
         </div>

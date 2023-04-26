@@ -17,21 +17,31 @@ export const ModulesApi = {
         return data;;
     }, 
 
-    async updateBlogPost (id, payload){
-        console.log(payload)
-        const { data } = await axios.put(`/post/${id}`, payload, {
-            header : {
-                'Content-Type' : 'multipart/form-data'
-            }
-        });
 
+    // Sliders
+
+    async fetchSliders (){
+        const { data } = await axios.get('/sliders');
+        
         return data;
-    },  
+    }, 
 
-    async deleteBlogPost (id){
-        const { data } = await axios.delete(`/post/${id}`)
+    async addSlider (payload){
+        const { data } = await axios.post('/slider', payload);
+        
         return data;
-    },
+    }, 
 
+    async updateSlider (id, payload){
+        const { data } = await axios.put(`/slider/${id}`, payload);
+        
+        return data;
+    }, 
+
+    async deleteSlider (id){
+        const { data } = await axios.delete(`/slider/${id}`);
+        
+        return data;
+    }, 
 
 }

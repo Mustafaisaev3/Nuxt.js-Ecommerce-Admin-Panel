@@ -2,9 +2,9 @@
   <div class="w-auto h-auto relative">
     <label v-if="label" :style="labelStyles">{{ label }}</label>
     <div class="h-full">
-        <input v-model="inputValue" :style="inputStyles" @focus="showContentBody = true" />
+        <input v-model="inputValue" :placeholder="placeholder" :style="inputStyles" @focus="showContentBody = true" />
     
-        <div v-show="showContentBody" class="content-body absolute left-0 top-[100%] w-full min-h-[150px] h-full flex flex-col gap-2 shadow bg-[#e8e8e8] rounded-md p-2 z-[1]">
+        <div v-show="showContentBody" class="content-body absolute left-0 top-[100%] w-full min-h-[150px] h-full flex flex-col gap-2 shadow bg-[#e8e8e8] rounded-md p-2 z-[1] overflow-auto">
             <div v-for="item in filteredData" :key="item.key" >
                 <div @click="() => onItemSelect(item)" class="hover:text-[#16bcdc] cursor-pointer">{{ item.title }}</div>
             </div>
@@ -16,7 +16,7 @@
 <script setup>
 import { ref, reactive } from 'vue'
 
-const props = defineProps(['data', 'label', 'modelValue', 'labelStyles', 'inputStyles'])
+const props = defineProps(['data', 'label', 'modelValue', 'labelStyles', 'inputStyles', 'placeholder'])
 const emits = defineEmits(['get-select-item'])
 
 const inputValue = ref('') 
