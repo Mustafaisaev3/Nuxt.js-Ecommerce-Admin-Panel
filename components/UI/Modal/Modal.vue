@@ -29,10 +29,14 @@ import AddBlogCategoryView from './ModalViews/Blog/AddBlogCategoryView.vue';
 import UpdateBlogCategoryView from './ModalViews/Blog/UpdateBlogCategory.vue';
 import AddBlogPostView from './ModalViews/Blog/AddBlogPostView.vue';
 import UpdateBlogPostView from './ModalViews/Blog/UpdateBlogPost.vue';
+import UpdateBlogSlider from './ModalViews/Blog/UpdateBlogSlider.vue';
 import MainSliderViewView from './ModalViews/Home/MainSliderView.vue';
 import MainBannerGridView from './ModalViews/Home/MainBannerGridView.vue';
 import AddSliderView from './ModalViews/Modules/AddSliderView.vue';
-import UpdateSliderView from './ModalViews/Modules/UpdateSliderView';
+import UpdateSliderView from './ModalViews/Modules/UpdateSliderView.vue';
+import PopularCategoriesView from './ModalViews/PopularCategories/PopularCategoriesView.vue';
+import TripleBannerView from './ModalViews/TripleBanner/TripleBannerView.vue';
+import BrandsView from './ModalViews/Brands/BrandsView.vue';
 
 // Icons
 import IconClose from '~icons/mdi/close'
@@ -79,6 +83,10 @@ const views = [
         view: UpdateBlogPostView
     },
     {
+        name: ModalViewsType.BLOG_SLIDER_UPDATE_VIEW,
+        view: UpdateBlogSlider
+    },
+    {
         name: ModalViewsType.HOME_MAIN_SLIDER_VIEW,
         view: MainSliderViewView
     },
@@ -93,6 +101,18 @@ const views = [
     {
         name: ModalViewsType.SLIDER_UPDATE_VIEW,
         view: UpdateSliderView
+    },
+    {
+        name: ModalViewsType.POPULAR_CATEGORIES_UPDATE_VIEW,
+        view: PopularCategoriesView
+    },
+    {
+        name: ModalViewsType.TRIPLE_BANNER_UPDATE_VIEW,
+        view: TripleBannerView
+    },
+    {
+        name: ModalViewsType.BRANDS_UPDATE_VIEW,
+        view: BrandsView
     },
 ]
 

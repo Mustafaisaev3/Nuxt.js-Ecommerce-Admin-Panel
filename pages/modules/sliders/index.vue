@@ -11,6 +11,24 @@
         <Table :head="tableHeads" :column-templates="tableSizeColumns">
             <TableRow 
                 :column-templates="tableSizeColumns"
+            >
+                <TableColumn>
+                    <span class="pl-2">Blog Slider</span>
+                </TableColumn>
+                <TableColumn :align="'center'">
+                    <div class="w-full flex items-center justify-center">
+                        active
+                    </div>
+                </TableColumn>
+                <TableColumn>
+                    <!-- <button class="w-[100px] h-[40px] bg-cyan-600 rounded-md p-2">Click</button> -->
+                    <div class="w-full flex items-center justify-center  gap-2">
+                        <IconPencil @click="handleUpdateBlogSlider" class="text-[#16bcdc] cursor-pointer" />
+                    </div>
+                </TableColumn>
+            </TableRow>
+            <TableRow 
+                :column-templates="tableSizeColumns"
                 v-for="slider in sliders"
                 :key="slider._id"
             >
@@ -54,8 +72,8 @@ const { openModal, setModalView, setModalData, addNotification } = useUi()
 const { modalView } = storeToRefs(useUi())
 
 // Modules Store
-const { fetchMainBanner, fetchSliders, deleteSlider } = ModulesStore()
-const { sliders } = storeToRefs(ModulesStore())
+const { fetchMainBanner, fetchSliders, deleteSlider, fetchBlogSlider } = ModulesStore()
+const { sliders, blog_slider } = storeToRefs(ModulesStore())
 
 // Table grid settings
 const tableHeads = ['slider name', 'status', 'actions']
@@ -74,6 +92,13 @@ const handleUpdateSlider = (item) => {
     openModal()
 }
 
+// Handle Update Blog Slider
+const handleUpdateBlogSlider = () => {
+    setModalData(blog_slider)
+    setModalView(ModalViewsType.BLOG_SLIDER_UPDATE_VIEW)
+    openModal()
+}
+
 // Handle Delete Slider
 const handleDeleteSlider = (id) => {
     deleteSlider(id)
@@ -83,6 +108,7 @@ const handleDeleteSlider = (id) => {
 onBeforeMount(() => {
     fetchMainBanner()
     fetchSliders()
+    fetchBlogSlider()
 })
 </script>
 

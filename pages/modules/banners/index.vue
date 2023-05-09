@@ -27,11 +27,62 @@
                     </div>
                 </TableColumn>
             </TableRow>
+            <TableRow 
+                :column-templates="tableSizeColumns"
+            >
+                <TableColumn>
+                    Popular Categories Banner
+                </TableColumn>
+                <TableColumn>
+                    Active
+                </TableColumn>
+                <TableColumn>
+                    <!-- <button class="w-[100px] h-[40px] bg-cyan-600 rounded-md p-2">Click</button> -->
+                    <div class="w-full flex items-center justify-center  gap-2">
+                        <IconPencil @click="() => handleUpdatePopularCategoriesBanner()" class="text-[#16bcdc] cursor-pointer" />
+                    </div>
+                </TableColumn>
+            </TableRow>
+            <TableRow 
+                :column-templates="tableSizeColumns"
+            >
+                <TableColumn>
+                    Triple Banner
+                </TableColumn>
+                <TableColumn>
+                    Active
+                </TableColumn>
+                <TableColumn>
+                    <!-- <button class="w-[100px] h-[40px] bg-cyan-600 rounded-md p-2">Click</button> -->
+                    <div class="w-full flex items-center justify-center  gap-2">
+                        <IconPencil @click="() => handleUpdateTripleBanner()" class="text-[#16bcdc] cursor-pointer" />
+                    </div>
+                </TableColumn>
+            </TableRow>
+            <TableRow 
+                :column-templates="tableSizeColumns"
+            >
+                <TableColumn>
+                    Brands Banner
+                </TableColumn>
+                <TableColumn>
+                    Active
+                </TableColumn>
+                <TableColumn>
+                    <!-- <button class="w-[100px] h-[40px] bg-cyan-600 rounded-md p-2">Click</button> -->
+                    <div class="w-full flex items-center justify-center  gap-2">
+                        <IconPencil @click="() => handleUpdateBrands()" class="text-[#16bcdc] cursor-pointer" />
+                    </div>
+                </TableColumn>
+            </TableRow>
         </Table>
     </div>
 </template>
 
 <script setup>
+import { useUi } from '~~/store/uiStore';
+import { ModalViewsType } from '~~/types/modalViewTypes';
+import { storeToRefs } from 'pinia';
 import Table from '~~/components/UI/Table/Table.vue';
 import TableRow from '~~/components/UI/Table/TableRow.vue';
 import TableColumn from '~~/components/UI/Table/TableColumn.vue';
@@ -46,9 +97,28 @@ import IconPencil from '~icons/mdi/pencil'
 const tableHeads = ['banner name', 'status', 'actions']
 const tableSizeColumns = '1.5fr 1fr 100px'
 
-const handleUpdateProduct = () => {
-    
+// UI Store
+const { openModal, setModalView, setModalData, addNotification } = useUi()
+const { modalView } = storeToRefs(useUi())
+
+// Popular Categories Banner
+const handleUpdatePopularCategoriesBanner = () => {
+    setModalView(ModalViewsType.POPULAR_CATEGORIES_UPDATE_VIEW)
+    openModal()
 }
+
+// Popular Categories Banner
+const handleUpdateTripleBanner = () => {
+    setModalView(ModalViewsType.TRIPLE_BANNER_UPDATE_VIEW)
+    openModal()
+}
+
+// Brands Banner
+const handleUpdateBrands = () => {
+    setModalView(ModalViewsType.BRANDS_UPDATE_VIEW)
+    openModal()
+}
+
 </script>
 
 <style>
