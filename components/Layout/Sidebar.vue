@@ -40,6 +40,7 @@
                 <SidebarDropdown :data="[
                         {title: 'Banners', link: '/modules/banners'}, 
                         {title: 'Sliders', link: '/modules/sliders'},  
+                        {title: 'Modules Layout', link: '/modules/layout'}, 
                         // {title: 'Vendor Profile', link: '/'}
                     ]"
                 >

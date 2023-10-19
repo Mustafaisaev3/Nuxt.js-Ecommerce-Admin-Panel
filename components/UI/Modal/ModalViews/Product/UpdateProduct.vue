@@ -50,10 +50,11 @@
   import SelectProductOptions from './SelectProductOptions.vue';
   import SelectProductCharacteristics from './SelectProductCharacteristics.vue';
 
+  // UI Store
+  const { modalData } = storeToRefs(useUi())
   
   // Products Store
   const { updateProduct } = ProductStore()
-  const { modalData } = storeToRefs(useUi())
   
   // Categories Store
   const { fetchCategories } = CategoryStore()

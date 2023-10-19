@@ -15,5 +15,16 @@ export const OptionApi = {
         console.log(data)
         
         return data;
-    }
+    },
+    async updateOption (id, payload){
+        console.log(payload)
+        const { data } = await axios.put(`/option/${id}`, payload, {
+            header : {
+                'Content-Type' : 'multipart/form-data'
+            }
+        });
+        console.log(data)
+
+        return data;
+    },  
 }

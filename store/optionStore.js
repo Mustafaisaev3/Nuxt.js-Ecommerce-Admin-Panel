@@ -37,22 +37,22 @@ export const OptionStore = defineStore({
             this.loading = false
         },
 
-        // async updateOrder (id, payload) {
-        //     this.loading = true
-        //     const { status, data } = await OrderApi.updateOrder(id, payload)
-        //     if (status == responseStatus.SUCCESS){
-        //         const targetOrder = this.orders.findIndex(category => {
-        //             return category._id == id
-        //         })
-        //         console.log(targetOrder)
-        //         this.orders.splice(targetOrder, 1, data)
-        //         addNotification({type: notificationTypes.SUCCESS, text: 'Order Updated!'})
-        //     } else {
-        //         console.log(status)
-        //         addNotification({type: notificationTypes.ERROR, text: 'Error'})
-        //     }
-        //     this.loading = false
-        // },
+        async updateOption (id, payload) {
+            this.loading = true
+            const { status, data } = await OptionApi.updateOption(id, payload)
+            if (status == responseStatus.SUCCESS){
+                const targetOption = this.options.findIndex(option => {
+                    return option._id == id
+                })
+                console.log(targetOption)
+                this.options.splice(targetOption, 1, data)
+                addNotification({type: notificationTypes.SUCCESS, text: 'Option Updated!'})
+            } else {
+                console.log(status)
+                addNotification({type: notificationTypes.ERROR, text: 'Error'})
+            }
+            this.loading = false
+        },
 
         // async changeOrderStatus (id, payload) {
         //     this.loading = true

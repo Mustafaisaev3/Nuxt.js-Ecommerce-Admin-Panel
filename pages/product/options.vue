@@ -24,7 +24,7 @@
             <TableColumn>
                 <!-- <button class="w-[100px] h-[40px] bg-cyan-600 rounded-md p-2">Click</button> -->
                 <div class="flex items-center justify-center  gap-2">
-                    <IconPencil @click="() => handleUpdateProduct(option)" class="text-[#16bcdc] cursor-pointer" />
+                    <IconPencil @click="() => handleUpdateOptions(option)" class="text-[#16bcdc] cursor-pointer" />
                     <IconDelete @click="() => handleDeleteProduct(option._id)" class="text-[red] cursor-pointer" />
                 </div>
             </TableColumn>
@@ -67,9 +67,9 @@ const openingModal = () => {
 }
 
 // Update Product
-const handleUpdateProduct = (product) => {
-    setModalView(ModalViewsType.PRODUCT_UPDATE_VIEW)
-    setModalData(product)
+const handleUpdateOptions = (options) => {
+    setModalView(ModalViewsType.OPTION_UPDATE_VIEW)
+    setModalData(options)
     openModal()
 }
 

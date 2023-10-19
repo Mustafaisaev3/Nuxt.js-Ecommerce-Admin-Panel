@@ -55,6 +55,7 @@
   import { ref, reactive } from 'vue';
   import { OptionStore } from '~~/store/optionStore';
   import { ModulesStore } from '~~/store/modulesStore';
+  import modulesTypes from '~~/types/modulesTypes';
   import SimpleUploadImage from '@/components/UI/UploadImage/SimpleUploadImage.vue';
   import Input from '@/components/UI/Input/Input.vue';
   import Button from '@/components/UI/Button/Button.vue'
@@ -77,6 +78,7 @@
   //   const { main_banner, loading } = storeToRefs(ModulesStore())
   
   const popularCategoriesName = ref('Popular Categories')
+  const popularCategoriesType = ref(modulesTypes.POPULAR_CATEGORIES)
   const popularCategoriesLink = ref('')
   let popularCategoriesItemsArray = ref([
     {id: Math.random() * 100, title: '', subtitle: '', link: '', image: undefined, status: true},
@@ -107,6 +109,7 @@
     const formData = new FormData()
     const popularCategoriesObj = {
         name: popularCategoriesName.value,
+        type: popularCategoriesType.value,
         link: popularCategoriesLink.value,
         items: popularCategoriesItemsArray.value
     }

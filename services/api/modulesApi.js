@@ -1,6 +1,23 @@
 import axios from '~/core/axios'
 
 export const ModulesApi = {
+    // Fetch All Modules
+    async fetchAllModules () {
+        const { data } = await axios.get('/all-modules');
+        return data.data;
+    },  
+
+    // Pages Layout
+    async fetchPageLayout (page) {
+        const { data } = await axios.get(`/get-page-layout/${page}`);
+        return data.data;
+    },  
+
+    async createPageLayout (payload) {
+        const { data } = await axios.post('/create-page-layout', payload);
+        return data;
+    },  
+
     // Home Main Banners
     async fetchMainBanner () {
         const { data } = await axios.get('/main-banner');

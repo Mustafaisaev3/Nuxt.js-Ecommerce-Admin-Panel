@@ -88,7 +88,8 @@
     }
 
     sliderItems.value.map(item => {
-        sliderObj.items.push(item._id)
+        // sliderObj.items.push(item._id)
+        sliderObj.items.push(item)
     })
   
     updateSlider(modalData.value._id, sliderObj)

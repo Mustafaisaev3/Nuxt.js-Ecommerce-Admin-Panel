@@ -25,6 +25,7 @@ import AddCategoryView from './ModalViews/Category/AddCategoryView.vue';
 import UpdateCategory from './ModalViews/Category/UpdateCategory.vue';
 import UserOrders from './ModalViews/Order/UserOrdersView.vue'
 import AddOptionView from './ModalViews/Option/AddOptionView.vue';
+import UpdateOptionView from './ModalViews/Option/UpdateOption.vue';
 import AddBlogCategoryView from './ModalViews/Blog/AddBlogCategoryView.vue';
 import UpdateBlogCategoryView from './ModalViews/Blog/UpdateBlogCategory.vue';
 import AddBlogPostView from './ModalViews/Blog/AddBlogPostView.vue';
@@ -65,6 +66,10 @@ const views = [
     {
         name: ModalViewsType.OPTION_ADD_VIEW,
         view: AddOptionView
+    },
+    {
+        name: ModalViewsType.OPTION_UPDATE_VIEW,
+        view: UpdateOptionView
     },
     {
         name: ModalViewsType.BLOG_CATEGORY_ADD_VIEW,

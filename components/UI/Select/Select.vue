@@ -1,5 +1,5 @@
 <template>
-    <div class="select-container w-full h-auto ">
+    <div class="select-container w-full h-[50px]">
         <label v-if="label">{{ label }}</label>
         <div class="select w-full flex items-center justify-between relative" @click="showSelectBody = !showSelectBody">
           {{ activeValue ? activeValue.title : placeholder }}
@@ -8,7 +8,7 @@
               <ul class="flex flex-col gap-2">
                   <li v-for="option in options" :key="option.key" @click="() => selectOption(option)" class="cursor-pointer">
                       <div class="flex items-center gap-2 hover:text-[#16bcdc] ">
-                          <div class="text-[15px]">{{ option.title }}</div>
+                          <div class="text-[15px]">{{ option.title || option.name }}</div>
                       </div>
                   </li>
               </ul>
@@ -67,9 +67,9 @@ const selectOption = (option) => {
     font-size: 14px;
     /* border: 2px solid #ddd; */
     width: 100%;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     line-height: 20px;
-    height: 50px;
+    height: 100%;
     border-radius: 5px;
     color: #999;
 }

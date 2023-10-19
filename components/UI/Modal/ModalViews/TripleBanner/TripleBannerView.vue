@@ -45,6 +45,7 @@
   import { storeToRefs } from 'pinia';
   import { OptionStore } from '~~/store/optionStore';
   import { ModulesStore } from '~~/store/modulesStore';
+  import modulesTypes from '~~/types/modulesTypes';
   import SimpleUploadImage from '@/components/UI/UploadImage/SimpleUploadImage.vue';
 //   import Input from '@/components/UI/Input/Input.vue';
   import Input from '@/components/UI/Input/Input.vue';
@@ -68,6 +69,7 @@
   const { triple_banner, loading } = storeToRefs(ModulesStore())
   
   const tripleBannerName = ref('Popular Categories')
+  const tripleBannerType = ref(modulesTypes.TRIPLE_BANNER)
   const tripleBanner = ref(triple_banner)
 //   const tripleBannerLink = ref(triple_banner.value.link)
   let TripleBannerItemsArray = ref([
@@ -99,6 +101,7 @@
     const formData = new FormData()
     const tripleBannerObj = {
         name: tripleBannerName.value,
+        type: tripleBannerType.value,
         link: tripleBanner.value.link,
         items: TripleBannerItemsArray.value
     }

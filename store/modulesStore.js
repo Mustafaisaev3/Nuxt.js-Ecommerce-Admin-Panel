@@ -11,6 +11,8 @@ export const ModulesStore = defineStore({
 
     state: () => {
         return {
+            page_layout: undefined,
+            all_modules: undefined,
             main_banner: undefined,
             sliders: undefined,
             popular_categories: undefined,
@@ -22,6 +24,33 @@ export const ModulesStore = defineStore({
     },
 
     actions: {
+        // All Modules
+        async fetchAllModules () {
+            this.loading = true
+            this.all_modules = await ModulesApi.fetchAllModules()
+            console.log(this.all_modules)
+            this.loading = false
+        },
+
+        // Pages Layouts
+        async fetchPageLayout (page) {
+            this.loading = true
+            this.page_layout = await ModulesApi.fetchPageLayout(page)
+            console.log(this.page_layout)
+            this.loading = false
+        },
+        async createPageLayout (payload) {
+            this.loading = true
+            const { status, data } = await ModulesApi.createPageLayout(payload)
+            if (status == responseStatus.SUCCESS){
+                this.page_layout = data
+                addNotification({type: notificationTypes.SUCCESS, text: 'Page Layout updaited!'})
+            } else {
+                console.log(status)
+            }
+            this.loading = false
+        },
+
         // Home Main Banner
         async fetchMainBanner () {
             this.loading = true

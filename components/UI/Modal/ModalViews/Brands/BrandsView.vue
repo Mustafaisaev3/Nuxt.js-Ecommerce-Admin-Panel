@@ -51,6 +51,7 @@ import { ref, reactive } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useUi } from '~~/store/uiStore';
 import { ModulesStore } from '~~/store/modulesStore';
+import modulesTypes from '~~/types/modulesTypes';
 import SimpleUploadImage from '@/components/UI/UploadImage/SimpleUploadImage.vue';
 import Input from '@/components/UI/Input/Input.vue';
 import Button from '@/components/UI/Button/Button.vue'
@@ -78,6 +79,7 @@ const { brands_banner, loading } = storeToRefs(ModulesStore())
 
 // let brandsArray = reactive(modalData.value.slides)
 const brandsName = ref('Brands')
+const brandsType = ref(modulesTypes.BRANDS_BANNER)
 const brandsLink = ref('')
 let brands = reactive(brands_banner)
 
@@ -112,6 +114,7 @@ const handleAddSlide = async () => {
 
     const brandsObj = {
         name: brandsName.value,
+        type: brandsType.value,
         link: brandsLink.value,
         items: brands.value.items
     }

@@ -39,6 +39,7 @@
   import { ModulesStore } from '~~/store/modulesStore';
   import { storeToRefs } from 'pinia';
   import { useUi } from '~~/store/uiStore';
+  import modulesTypes from '~~/types/modulesTypes';
   import UploadImage from '@/components/UI/UploadImage/UploadImage.vue';
   import Input from '@/components/UI/Input/Input.vue';
   import Button from '@/components/UI/Button/Button.vue'
@@ -61,10 +62,10 @@
   const { updateBlogSlider } = ModulesStore()
 
   const sliderName = ref('Blog Slider')
-  const sliderTitle = ref(modalData.value.title ? modalData.value.title : '')
-  const sliderLink = ref(modalData.value.link ? modalData.value.link : '')    
-  const sliderStatus = ref(modalData.value.status ? modalData.value.status : true)    
-  const sliderItems = ref(modalData.value.items ? modalData.value.items : [])
+  const sliderTitle = ref(modalData.value ? modalData.value.title : '')
+  const sliderLink = ref(modalData.value ? modalData.value.link : '')    
+  const sliderStatus = ref(modalData.value ? modalData.value.status : true)    
+  const sliderItems = ref(modalData.value ? modalData.value.items : [])
 //   const sliderItems = ref(modalData.value.items)
 
   // Handle add item to Slider Items
@@ -91,13 +92,15 @@
     const sliderObj = {
         name: sliderName.value,
         title: sliderTitle.value,
+        type: modulesTypes.BLOG_SLIDER,
         link: sliderLink.value,
         items: [],
         status: sliderStatus.value,
     }
 
     sliderItems.value.map(item => {
-        sliderObj.items.push(item._id)
+        // sliderObj.items.push(item._id)
+        sliderObj.items.push(item)
     })
   
     updateBlogSlider(sliderObj)
